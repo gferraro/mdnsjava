@@ -475,9 +475,9 @@ public class MulticastDNSCache extends Cache implements Closeable
     
     
     @Override
-    public synchronized void addRecord(final Record r, final int cred, final Object o)
+    public synchronized void addRecord(final Record r, final int cred)
     {
-        super.addRecord(r, cred, o);
+        super.addRecord(r, cred);
     }
     
     
@@ -721,16 +721,16 @@ public class MulticastDNSCache extends Cache implements Closeable
                         element.resetExpire();
                     } else
                     {
-                        addRecord(record, cred, this);
+                        addRecord(record, cred);
                     }
                 } else
                 {
-                    addRecord(record, cred, this);
+                    addRecord(record, cred);
                 }
             }
         } else
         {
-            addRecord(record, cred, this);
+            addRecord(record, cred);
         }
     }
     

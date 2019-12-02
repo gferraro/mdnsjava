@@ -76,8 +76,21 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>hamcrest-core</artifactId>
+          <groupId>org.hamcrest</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>dnsjava</groupId>
+      <artifactId>dnsjava</artifactId>
+      <version>3.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/../../dnsjava/target/dnsjava-3.0.0-SNAPSHOT.jar</systemPath>
     </dependency>
   </dependencies>
   <properties>

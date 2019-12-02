@@ -17,8 +17,16 @@
 		<dependency>
 		    <groupId>dnsjava</groupId>
 		    <artifactId>dnsjava</artifactId>
-		    <version>2.1.7</version>
+		    <version>3.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../../dnsjava/target/dnsjava-3.0.0-SNAPSHOT.jar</systemPath>
 		</dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.26</version>
+        </dependency>
+
         <dependency>
             <groupId>net.posick</groupId>
             <artifactId>mdnsjava</artifactId>

@@ -1289,8 +1289,8 @@ public class MulticastDNSMulticastOnlyQuerier implements Querier, PacketListener
                     if (cacheRecord.getTTL() > 0)
                     {
                         SetResponse response = cache.lookupRecords(cacheRecord.getName(), cacheRecord.getType(), Credibility.ANY);
-                        RRset[] rrs = response.answers();
-                        if ((rrs != null) && (rrs.length > 0))
+                        List<RRset<?>> rrs = response.answers();
+                        if ((rrs != null) && (rrs.size() > 0))
                         {
                             Record[] cachedRecords = MulticastDNSUtils.extractRecords(rrs);
                             if ((cachedRecords != null) && (cachedRecords.length > 0))
@@ -1307,7 +1307,7 @@ public class MulticastDNSMulticastOnlyQuerier implements Querier, PacketListener
                             {
                                 logger.logp(Level.INFO, getClass().getName(), "updateCache", "Caching Record: " + cacheRecord);
                             }
-                            cache.addRecord(cacheRecord, credibility, null);
+                            cache.addRecord(cacheRecord, credibility);
                         }
                     } else
                     {

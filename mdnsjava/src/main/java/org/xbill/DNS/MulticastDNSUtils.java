@@ -152,13 +152,9 @@ public class MulticastDNSUtils
         if (results.length > 0)
         {
             int index = 0;
-            Iterator iterator = rrset.rrs(false);
-            if (iterator != null)
-            {
-                while (iterator.hasNext())
-                {
-                    results[index++] = (Record) iterator.next();
-                }
+            List<Record> records = rrset.rrs(false);
+           for (Record rec : records) {
+                results[index++] = rec;
             }
         }
         
@@ -166,9 +162,9 @@ public class MulticastDNSUtils
     }
     
     
-    public static final Record[] extractRecords(final RRset[] rrs)
+    public static final Record[] extractRecords(final List<RRset<?>> rrs)
     {
-        if ((rrs == null) || (rrs.length == 0))
+        if ((rrs == null) || (rrs.size() == 0))
         {
             return MulticastDNSUtils.EMPTY_RECORDS;
         }
